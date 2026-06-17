@@ -4,10 +4,28 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
+  workflow_dispatch:
+    inputs:
+      target_env:
+        description: 'Select environment'
+        required: true
+        type: choice
+        options:
+          - qa
+          - uat
+          - prod
 jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+
+    environment: ${{ github.event.inputs.target_env }}
+
+    env:
+      BASE_URL: ${{ secrets.BASE_URL }}
+      USERNAME: ${{ secrets.USERNAME }}
+      PASSWORD: ${{ secrets.PASSWORD }}
+
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
