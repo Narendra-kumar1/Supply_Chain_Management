@@ -22,7 +22,7 @@ test("product with price letters @Adhoc",async({page})=>{
     page.on("dialog",async dialog=>{
         await dialog.accept();
     })
-    await page.goto(`${process.env.BASe_URL}/admin/add_product.php`);
+    await page.goto(`${process.env.BASE_URL}/admin/add_product.php`);
 
     const LandingPage=new Landing(page);
     

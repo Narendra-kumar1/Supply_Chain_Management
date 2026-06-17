@@ -29,7 +29,7 @@ test("end to end 1 testing @EndToEnd",async({page})=>{
         await dialog.accept();
     })
 
-    await page.goto(`${process.env.BASe_URL}/admin/index.php`);
+    await page.goto(`${process.env.BASE_URL}/admin/index.php`);
 
     const LandingPage=new Landing(page);
     await LandingPage.addProductLink.click();
@@ -44,7 +44,7 @@ test("end to end 1 testing @EndToEnd",async({page})=>{
 
    //await LandingPage.logoutButton.click();
 
-    await page.goto(`${process.env.BASe_URL}`);
+    await page.goto(`${process.env.BASE_URL}`);
 
     const LoginPage=new Login(page);
     await LoginPage.LoginFunctionality({...data2,loginType:"Retailer"});
