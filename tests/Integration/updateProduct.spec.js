@@ -24,7 +24,7 @@ test("add product @Integration",async({page})=>{
         await dialog.accept();
     })
 
-    await page.goto(`${process.env.BASe_URL}/admin/index.php`);
+    await page.goto(`${process.env.BASE_URL}/admin/index.php`);
 
     const LandingPage=new Landing(page);
     await LandingPage.addProductLink.click();
