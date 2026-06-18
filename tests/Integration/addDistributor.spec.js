@@ -21,6 +21,8 @@ test("add Distributor @Integration",async({page})=>{
     
     await page.goto(`${process.env.BASE_URL}/admin/index.php`);
     
+
+    
     
     const LandingPage=new Landing(page);
     await LandingPage.addDistributorLink.click();
