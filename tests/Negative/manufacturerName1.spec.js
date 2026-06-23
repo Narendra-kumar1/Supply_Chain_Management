@@ -12,10 +12,11 @@ import Manufacturers from "../../PageObjectModel/Manufacturers.page";
 import path from "path";
 
 import manufacturerData from "../../utils/manufacturer";
+import screenshot from "../../utils/screenshot";
 
 test.use({storageState:path.join(__dirname,"../../auth/Admin.auth.json")});
 
-test("manufacturer  name with more than 14 characters @Adhoc",async({page})=>{
+test("manufacturer  name with more than 14 characters @Adhoc",async({page},testInfo)=>{
 
     const data=manufacturerData();
 
@@ -30,4 +31,5 @@ test("manufacturer  name with more than 14 characters @Adhoc",async({page})=>{
     await AddEditManufacturerPage.AddManufacturerFunctionality({...data,username:"abcdefghijklmnopqrdd"});
 
     await expect(await page.getByText("* 5-14 characters, Only Alphabets & Numbers allowed")).toBeVisible();
+     await screenshot(testInfo,page)
 })

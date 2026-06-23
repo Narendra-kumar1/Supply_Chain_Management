@@ -7,10 +7,11 @@ import Manufacturers from "../../PageObjectModel/Manufacturers.page";
 import path from "path";
 
 import manufacturerData from "../../utils/manufacturer";
+import screenshot from "../../utils/screenshot";
 
 test.use({storageState:path.join(__dirname,"../../auth/Admin.auth.json")});
 
-test.fail("manufacturer phone with less than 10 digits  @Adhoc",async({page})=>{
+test.fail("manufacturer phone with less than 10 digits  @Adhoc",async({page},testInfo)=>{
 
     const data=manufacturerData();
 
@@ -26,4 +27,5 @@ test.fail("manufacturer phone with less than 10 digits  @Adhoc",async({page})=>{
     await AddEditManufacturerPage.AddManufacturerFunctionality({...data,phone:"78945612"});
 
     await expect(await page.getByText("* Invalid Phone Number")).toBeVisible();
+     await screenshot(testInfo,page)
 })

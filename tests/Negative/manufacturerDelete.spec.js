@@ -13,10 +13,11 @@ import Manufacturers from "../../PageObjectModel/Manufacturers.page";
 import path from "path";
 
 import manufacturerData from "../../utils/manufacturer";
+import screenshot from "../../utils/screenshot";
 
 test.use({storageState:path.join(__dirname,"../../auth/Admin.auth.json")});
 
-test(" manufacturer  delete @Adhoc",async({page})=>{
+test(" manufacturer  delete @Adhoc",async({page},testInfo)=>{
 
     const data=manufacturerData();
 
@@ -50,5 +51,6 @@ test(" manufacturer  delete @Adhoc",async({page})=>{
     await LoginPage.LoginFunctionality({username:data.username,password:data.password,loginType:"Manufacturer"});
 
     await expect(page.getByText(" * Username or Password is incorrect. ")).toBeVisible();
+     await screenshot(testInfo,page)
 
 })

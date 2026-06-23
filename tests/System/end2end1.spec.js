@@ -17,12 +17,13 @@ import path from "path";
 import productData  from "../../utils/productData";
 //import data2 from "../../test-data/retailer.json"
 import RetailerData from "../../utils/retailer";
+import screenshot from "../../utils/screenshot";
 
 
 
 test.use({storageState:path.join(__dirname,"../../auth/Admin.auth.json")})
 
-test("end to end 1 testing @EndToEnd",async({page})=>{
+test("end to end 1 testing @EndToEnd",async({page},testInfo)=>{
     const data1=productData()
     const data2=RetailerData();
     page.on("dialog",async dialog=>{
@@ -48,6 +49,7 @@ test("end to end 1 testing @EndToEnd",async({page})=>{
 
     const LoginPage=new Login(page);
     await LoginPage.LoginFunctionality({...data2,loginType:"Retailer"});
+    await screenshot(testInfo,page);
  
 })
 

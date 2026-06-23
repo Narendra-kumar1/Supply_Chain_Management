@@ -7,10 +7,11 @@ import Manufacturers from "../../PageObjectModel/Manufacturers.page";
 import path from "path";
 
 import manufacturerData from "../../utils/manufacturer";
+import screenshot from "../../utils/screenshot";
 
 test.use({storageState:path.join(__dirname,"../../auth/Admin.auth.json")});
 
-test("manufacturer email without domain @Adhoc",async({page})=>{
+test("manufacturer email without domain @Adhoc",async({page},testInfo)=>{
 
     const data=manufacturerData();
     
@@ -28,4 +29,5 @@ test("manufacturer email without domain @Adhoc",async({page})=>{
      
 
     await expect(await page.getByText("* Invalid Email")).toBeVisible();
+     await screenshot(testInfo,page)
 })

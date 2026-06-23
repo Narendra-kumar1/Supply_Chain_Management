@@ -17,11 +17,12 @@ import RetailerData from "../../utils/retailer";
 import productData from "../../utils/productData";
 
 import manufacturerData from "../../utils/manufacturer";
+import screenshot from "../../utils/screenshot";
 
 test.use({storageState:path.join(__dirname,"../../auth/Admin.auth.json")});
 
 
-test("add Retailer @EndToEnd",async({page})=>{
+test("add Retailer @EndToEnd",async({page},testInfo)=>{
 
     const data2=manufacturerData();
     const data=RetailerData();
@@ -51,4 +52,5 @@ test("add Retailer @EndToEnd",async({page})=>{
 
     await LandingPage.manageAreaLink.click();
     await LandingPage.manageCategoryLink.click();
+    await screenshot(testInfo,page);
 })
