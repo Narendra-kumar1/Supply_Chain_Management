@@ -16,7 +16,7 @@ import screenshot from "../../utils/screenshot";
 
 test.use({storageState:path.join(__dirname,"../../auth/Admin.auth.json")});
 
-test("manufacturer name with symbols @Adhoc",async({page},testInfo)=>{
+test("manufacturer name with symbols @Regression",async({page},testInfo)=>{
 
     const data=manufacturerData();
     

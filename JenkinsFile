@@ -9,7 +9,8 @@ pipeline {
             choices: ['qa', 'uat', 'prod'],
             description: 'Select environment'
         )
-    }
+        
+            }
 
     stages {
 
@@ -25,6 +26,7 @@ pipeline {
                 bat 'npx playwright install'
             }
         }
+
 
         stage('Run Tests') {
             steps {
@@ -59,11 +61,26 @@ pipeline {
                             usernameVariable: 'USERNAME',
                             passwordVariable: 'PASSWORD'
                         )
-                    ]) {
+                    ])
+                    {
+                        bat '''
+                            Running the setup file
+                            npx playwright test setup/auth.spec.js
+                        '''
+
+                    }
+                    {
+                        bat '''
+                            echo Running tests smoke suite against %BASE_URL%
+                            npx playwright test --grep "@Smoke"
+                        '''
+                    }
+                    
+                     {
 
                         bat '''
-                            echo Running tests against %BASE_URL%
-                            npx playwright test
+                            echo Running tests  Regression against %BASE_URL%
+                            npx playwright test --grep "@Regression"
                         '''
                     }
                 }

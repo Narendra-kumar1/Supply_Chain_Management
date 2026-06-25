@@ -13,7 +13,7 @@ import productData from "../../utils/productData";
 
 test.use({storageState:path.join(__dirname,"../../auth/Admin.auth.json")})
 
-test("add product @Integration",async({page})=>{
+test("add product @Regression",async({page})=>{
     const data=productData();
 
     page.on("dialog",async dialog=>{

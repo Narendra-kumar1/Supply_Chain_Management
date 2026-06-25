@@ -23,7 +23,7 @@ import screenshot from "../../utils/screenshot";
 
 test.use({storageState:path.join(__dirname,"../../auth/Admin.auth.json")})
 
-test("end to end 1 testing @EndToEnd",async({page},testInfo)=>{
+test("end to end 1 testing @Regression",async({page},testInfo)=>{
     const data1=productData()
     const data2=RetailerData();
     page.on("dialog",async dialog=>{

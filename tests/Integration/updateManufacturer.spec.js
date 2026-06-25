@@ -16,7 +16,7 @@ import updateManufacturer from "../../utils/updateManufacturer";
 
 test.use({storageState:path.join(__dirname,"../../auth/Admin.auth.json")});
 
-test("update manufacturer @Integration",async({page})=>{
+test("update manufacturer @Regression",async({page})=>{
     
     const data=manufacturerData();
     const updateManufacturerData=updateManufacturer();

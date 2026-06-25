@@ -1,12 +1,16 @@
 import {test,expect} from "../../fixtures/loginFixture";
+// import {test} from "../../fixtures/authenticationFixture"
+// import {expect} from "@playwright/test"
 import Login from "../../PageObjectModel/Login.page";
 import path from "path"
 //import {expect} from "@playwright/test"
 import data from "../../test-data/loginData.json"
 import screenshot from "../../utils/screenshot";
 
+
 test("login test @Smoke",async({LoginFixture,page},testInfo)=>{
     // await page.goto(`${process.env.BASE_URL}/admin/index.php`)
+    
     
     // const LoginPage=new Login(page);
     //await LoginPage.LoginFunctionality(data);

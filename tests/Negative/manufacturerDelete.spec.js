@@ -17,7 +17,7 @@ import screenshot from "../../utils/screenshot";
 
 test.use({storageState:path.join(__dirname,"../../auth/Admin.auth.json")});
 
-test(" manufacturer  delete @Adhoc",async({page},testInfo)=>{
+test(" manufacturer  delete @Regression",async({page},testInfo)=>{
 
     const data=manufacturerData();
 

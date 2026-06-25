@@ -12,7 +12,7 @@ import manufacturerData from "../../utils/manufacturer";
 
 test.use({storageState:path.join(__dirname,"../../auth/Admin.auth.json")});
 
-test("login manufacturer @Integration",async({page})=>{
+test("login manufacturer @Regression",async({page})=>{
         
     const data=manufacturerData();
 

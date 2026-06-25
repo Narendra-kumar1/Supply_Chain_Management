@@ -24,7 +24,7 @@ import updateDistributor from "../../utils/updateDistributor";
 
 test.use({storageState:path.join(__dirname,"../../auth/Admin.auth.json")});
 
-test("update distributor @Integration",async({page})=>{
+test("update distributor @Regression",async({page})=>{
 
     const data=distributorData();
     const updateDistributorData=updateDistributor();

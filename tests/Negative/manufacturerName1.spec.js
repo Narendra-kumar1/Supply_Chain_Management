@@ -16,7 +16,7 @@ import screenshot from "../../utils/screenshot";
 
 test.use({storageState:path.join(__dirname,"../../auth/Admin.auth.json")});
 
-test("manufacturer  name with more than 14 characters @Adhoc",async({page},testInfo)=>{
+test("manufacturer  name with more than 14 characters @Regression",async({page},testInfo)=>{
 
     const data=manufacturerData();
 

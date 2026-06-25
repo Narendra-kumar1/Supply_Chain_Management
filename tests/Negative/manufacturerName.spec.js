@@ -13,7 +13,7 @@ import screenshot from "../../utils/screenshot";
 
 test.use({storageState:path.join(__dirname,"../../auth/Admin.auth.json")});
 
-test("manufacturer name with two letters @Adhoc",async({page},testInfo)=>{
+test("manufacturer name with two letters @Regression",async({page},testInfo)=>{
 
 
     const data=manufacturerData();

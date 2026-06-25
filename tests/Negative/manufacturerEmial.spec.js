@@ -11,7 +11,7 @@ import screenshot from "../../utils/screenshot";
 
 test.use({storageState:path.join(__dirname,"../../auth/Admin.auth.json")});
 
-test("manufacturer email without domain @Adhoc",async({page},testInfo)=>{
+test("manufacturer email without domain @Regression",async({page},testInfo)=>{
 
     const data=manufacturerData();
     

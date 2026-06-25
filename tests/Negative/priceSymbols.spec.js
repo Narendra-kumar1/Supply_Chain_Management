@@ -16,7 +16,7 @@ import screenshot from "../../utils/screenshot";
 
 test.use({storageState:path.join(__dirname,"../../auth/Admin.auth.json")})
 
-test("product with price symbols @Adhoc",async({page},testInfo)=>{
+test("product with price symbols @Regression",async({page},testInfo)=>{
 
     const data=productData();
     page.on("dialog",async dialog=>{

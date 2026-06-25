@@ -8,7 +8,7 @@ import data from "../../test-data/invaidLogin.json"
 //import screenshot from "../../utils/screenshot";
 
 
-test("invalid login @Adhoc",async({page})=>{
+test("invalid login @Regression",async({page})=>{
         await page.goto(`${process.env.BASE_URL}`);
 
     

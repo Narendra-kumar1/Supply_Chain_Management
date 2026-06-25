@@ -22,7 +22,7 @@ import screenshot from "../../utils/screenshot";
 test.use({storageState:path.join(__dirname,"../../auth/Admin.auth.json")});
 
 
-test("add Retailer @EndToEnd",async({page},testInfo)=>{
+test("add Retailer @Regression",async({page},testInfo)=>{
 
     const data2=manufacturerData();
     const data=RetailerData();

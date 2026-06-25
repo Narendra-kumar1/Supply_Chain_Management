@@ -21,7 +21,7 @@ import updateRetailer from "../../utils/updateRetailer";
 
 test.use({storageState:path.join(__dirname,"../../auth/Admin.auth.json")});
 
-test("update Retailer @Integration",async({addRetailerFixture,page})=>{
+test("update Retailer @Regression",async({addRetailerFixture,page})=>{
     const data=RetailerData();
     const updatedRetailer=updateRetailer();
 

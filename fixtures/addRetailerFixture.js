@@ -19,10 +19,8 @@ export const test=base.extend({
         const AddEditRetailerPage=new AddEditRetailer(page);
         await AddEditRetailerPage.addRetailerFunctionality(data);
 
-        await use(data);
-
-        
-       
+        await use(data);   
     }
+     
 
 })

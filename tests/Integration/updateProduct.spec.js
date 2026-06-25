@@ -15,7 +15,7 @@ import updateProduct from "../../utils/updateProduct";
 
 test.use({storageState:path.join(__dirname,"../../auth/Admin.auth.json")})
 
-test("add product @Integration",async({page})=>{
+test("add product @Regression",async({page})=>{
 
     const data=productData()
     const updatedData=updateProduct();

@@ -11,7 +11,6 @@ class Login{
         this.loginButton=this.page.getByRole("button",{name:"Login"});
     }
 
-    
     async LoginFunctionality(data,authentication){
         await this.username.fill(data.username);
         await this.password.fill(data.password);
@@ -19,6 +18,5 @@ class Login{
         await this.loginButton.click();
     }
 }
-
 
 export default Login;

@@ -8,7 +8,7 @@ import screenshot from "../../utils/screenshot";
 
 test.use({storageState:path.join(__dirname,"../../auth/Admin.auth.json")})
 
-test.fail("search the order by wrong search @Adhoc",async({page},testInfo)=>{
+test.fail("search the order by wrong search @Regression",async({page},testInfo)=>{
     await page.goto(`${process.env.BASE_URL}/admin/view_orders.php`);
     const OrderPage=new Order(page);
     await OrderPage.searchDropDown.selectOption(" Id ");

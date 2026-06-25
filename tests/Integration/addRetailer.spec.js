@@ -15,7 +15,7 @@ import RetailerData from "../../utils/retailer";
 
 test.use({storageState:path.join(__dirname,"../../auth/Admin.auth.json")});
 
-test("add Retailer @Integration",async({page})=>{
+test("add Retailer @Regression",async({page})=>{
 
     const data=RetailerData();
 

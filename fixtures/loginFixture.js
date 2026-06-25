@@ -14,6 +14,7 @@ export const test=base.extend(
                 await LoginPage.LoginFunctionality(data);
                 await use(page);
         }
+        
     }
 )
 

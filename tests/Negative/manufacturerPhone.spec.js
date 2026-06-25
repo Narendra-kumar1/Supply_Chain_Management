@@ -11,7 +11,7 @@ import screenshot from "../../utils/screenshot";
 
 test.use({storageState:path.join(__dirname,"../../auth/Admin.auth.json")});
 
-test.fail("manufacturer phone with less than 10 digits  @Adhoc",async({page},testInfo)=>{
+test.fail("manufacturer phone with less than 10 digits  @Regression",async({page},testInfo)=>{
 
     const data=manufacturerData();
 
