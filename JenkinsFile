@@ -64,19 +64,19 @@ pipeline {
                     ])
                     {
                         bat '''
-                            Running the setup file
-                            npx playwright test setup/auth.spec.js
+                            echo the setup file
+                            npx playwright test tests/setup/auth.spec.js
                         '''
 
-                    }
-                    {
+                    
+                    
                         bat '''
                             echo Running tests smoke suite against %BASE_URL%
                             npx playwright test --grep "@Smoke"
                         '''
-                    }
                     
-                     {
+                    
+                     
 
                         bat '''
                             echo Running tests  Regression against %BASE_URL%
