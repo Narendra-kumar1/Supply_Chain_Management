@@ -29,7 +29,7 @@ pipeline {
 
 
         stage('Run Tests') {
-            agent{lable:any}
+            agent{label:any}
             steps {
 
                 script {
@@ -80,7 +80,7 @@ pipeline {
         stage("sharding running"){
             parallel{
                 stage('Shard 1') {
-                    agent{lable:"Built-In Node"}
+                    agent{label:"Built-In Node"}
                     
                         steps {
                             bat 'npx playwright test --grep "@Smoke"'
