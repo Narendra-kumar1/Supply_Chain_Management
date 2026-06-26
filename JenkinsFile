@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent none
     tools {
         allure 'Allure 3'
     }
@@ -29,7 +29,9 @@ pipeline {
 
 
         stage('Run Tests') {
+            agent{lable:any}
             steps {
+
                 script {
 
                     def credentialId = '';
@@ -78,18 +80,22 @@ pipeline {
         stage("sharding running"){
             parallel{
                 stage('Shard 1') {
+                    agent{lable:"Built-In Node"}
+                    
                         steps {
                             bat 'npx playwright test --grep "@Smoke"'
                         }
                     }
 
                 stage('Shard 2') {
+                    agent{label:"node2"}
                         steps {
                             bat 'npx playwright test --grep "@Regression" --shard=1/2'
                         }
                     }
 
                 stage('Shard 3') {
+                    agent{label:"Built-In Node"}
                         steps {
                             bat 'npx playwright test --grep "@Regression" --shard=2/2'
                         }
