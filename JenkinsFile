@@ -28,7 +28,7 @@ pipeline {
                 bat 'npx playwright install'
             }
         }
-         stage('Install') {
+         stage('Install1') {
             agent{label "node2"}
             steps {
                 bat 'npm ci'
