@@ -22,7 +22,14 @@ pipeline {
         }
 
         stage('Install') {
-            agent any
+            agent{label "node1"}
+            steps {
+                bat 'npm ci'
+                bat 'npx playwright install'
+            }
+        }
+         stage('Install') {
+            agent{label "node2"}
             steps {
                 bat 'npm ci'
                 bat 'npx playwright install'
