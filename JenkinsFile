@@ -15,12 +15,14 @@ pipeline {
     stages {
 
         stage('Checkout') {
+            agent any
             steps {
                 checkout scm
             }
         }
 
         stage('Install') {
+            agent any
             steps {
                 bat 'npm ci'
                 bat 'npx playwright install'
