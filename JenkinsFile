@@ -55,7 +55,14 @@ pipeline {
                             error('Invalid environment selected');
                     }
 
-                    withCredentials([
+                   
+                }
+            }
+        }
+
+        stage('Running authentication'){
+            steps{
+                 withCredentials([
                         usernamePassword(
                             credentialsId: credentialId,
                             usernameVariable: 'USERNAME',
@@ -68,23 +75,30 @@ pipeline {
                             npx playwright test tests/setup/auth.spec.js
                         '''
 
-                    
-                    
-                        bat '''
-                            echo Running tests smoke suite against %BASE_URL%
-                            npx playwright test --grep "@Smoke"
-                        '''
-                    
-                    
-                     
-
-                        bat '''
-                            echo Running tests  Regression against %BASE_URL%
-                            npx playwright test --grep "@Regression"
-                        '''
                     }
-                }
             }
+        }
+        stage("sharding running"){
+            parallel{
+                stage('Shard 1') {
+                        steps {
+                            sh 'npx playwright test --grep "@Smoke"'
+                        }
+                    }
+
+                    stage('Shard 2') {
+                        steps {
+                            sh 'npx playwright test --grep "@Regression" --shard=1/2'
+                        }
+                    }
+
+                    stage('Shard 3') {
+                        steps {
+                            sh 'npx playwright test --grep "@Regression" --shard=2/2'
+                        }
+                    }
+            }
+            
         }
     }
     post {
