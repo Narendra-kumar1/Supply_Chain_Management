@@ -38,7 +38,54 @@ pipeline {
 
 
         stage('Run Tests') {
-            agent any
+            agent {label "node2"}
+            steps {
+
+                script {
+
+                    def credentialId = '';
+
+                    switch(params.TEST_ENV) {
+
+                        case 'qa':
+                            env.BASE_URL = 'http://49.249.29.4:8081/AppServer/Supply_Chain_Management'
+                            credentialId = 'qa-creds'
+                            break;
+
+                        case 'uat':
+                            env.BASE_URL = 'http://49.249.29.4:8081/AppServer/Supply_Chain_Management'
+                            credentialId = 'uat-creds'
+                            break;
+
+                        case 'prod':
+                            env.BASE_URL = 'http://49.249.29.4:8081/AppServer/Supply_Chain_Management'
+                            credentialId = 'prod-creds'
+                            break;
+
+                        default:
+                            error('Invalid environment selected');
+                    }
+                    withCredentials([
+                        usernamePassword(
+                            credentialsId: credentialId,
+                            usernameVariable: 'USERNAME',
+                            passwordVariable: 'PASSWORD'
+                        )
+                    ])
+                    {
+                        bat '''
+                            echo the setup file
+                            npx playwright test tests/setup/auth.spec.js
+                        '''
+
+                    }
+
+                   
+                }
+            }
+        }
+         stage('Run Tests1') {
+            agent {label "node1"}
             steps {
 
                 script {
