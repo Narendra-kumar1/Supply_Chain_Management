@@ -82,7 +82,7 @@ pipeline {
         stage("sharding running"){
             parallel{
                 stage('Shard 1') {
-                    agent{label "Built-In Node"}
+                    agent{label "node1"}
                     
                         steps {
                             bat 'npx playwright test --grep "@Smoke"'
@@ -97,7 +97,7 @@ pipeline {
                     }
 
                 stage('Shard 3') {
-                    agent{label "Built-In Node"}
+                    agent{label "node1"}
                         steps {
                             bat 'npx playwright test --grep "@Regression" --shard=2/2'
                         }
