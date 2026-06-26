@@ -83,13 +83,13 @@ pipeline {
                         }
                     }
 
-                    stage('Shard 2') {
+                stage('Shard 2') {
                         steps {
                             bat 'npx playwright test --grep "@Regression" --shard=1/2'
                         }
                     }
 
-                    stage('Shard 3') {
+                stage('Shard 3') {
                         steps {
                             bat 'npx playwright test --grep "@Regression" --shard=2/2'
                         }
