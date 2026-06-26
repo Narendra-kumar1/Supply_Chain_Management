@@ -54,15 +54,7 @@ pipeline {
                         default:
                             error('Invalid environment selected');
                     }
-
-                   
-                }
-            }
-        }
-
-        stage('Running authentication'){
-            steps{
-                 withCredentials([
+                    withCredentials([
                         usernamePassword(
                             credentialsId: credentialId,
                             usernameVariable: 'USERNAME',
@@ -76,8 +68,13 @@ pipeline {
                         '''
 
                     }
+
+                   
+                }
             }
         }
+
+        
         stage("sharding running"){
             parallel{
                 stage('Shard 1') {
